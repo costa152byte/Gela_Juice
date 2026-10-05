@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gela Juice | Sucos Naturais, Açaí e Salgados</title>
+  <meta name="description" content="Sucos naturais, açaí na garrafa e salgados feitos para refrescar o seu dia. Monte seu pedido e finalize direto pelo WhatsApp.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gela Juice | Sucos Naturais, Açaí e Salgados">
+  <meta property="og:description" content="Sucos naturais, açaí na garrafa e salgados feitos para refrescar o seu dia. Monte seu pedido e finalize direto pelo WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/logo.png">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Canonical: preparado para receber domínio definitivo -->
+  <link rel="canonical" href="https://www.gelajuice.com.br/">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Skip link para acessibilidade -->
+  <a class="skip-link" href="#main-content">Ir para o conteúdo principal</a>
+
+  <!-- ============================================= -->
+  <!-- HEADER -->
+  <!-- ============================================= -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="header__logo" aria-label="Gela Juice — página inicial">
+        <img src="img/logo.png" alt="Gela Juice" width="140" height="40">
+      </a>
+
+      <nav class="header__nav" id="primary-nav" aria-label="Navegação principal">
+        <ul class="header__nav-list">
+          <li><a href="#top" class="header__nav-link">Início</a></li>
+          <li><a href="#cardapio" class="header__nav-link">Cardápio</a></li>
+          <li><a href="#combos" class="header__nav-link">Combos</a></li>
+          <li><a href="#sobre" class="header__nav-link">Sobre</a></li>
+          <li><a href="#localizacao" class="header__nav-link">Localização</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="#cardapio" class="btn btn--primary header__cta">Pedir agora</a>
+
+        <button class="header__cart-toggle" id="cart-toggle" aria-label="Abrir carrinho" aria-controls="cart-drawer" aria-expanded="false">
+          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.8h8.6a2 2 0 0 0 2-1.6L21.6 7H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9" cy="20" r="1.4" fill="currentColor"/>
+            <circle cx="18" cy="20" r="1.4" fill="currentColor"/>
+          </svg>
+          <span class="header__cart-count" id="cart-count" hidden>0</span>
+        </button>
+
+        <button class="header__menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-controls="primary-nav" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Overlay do menu mobile -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay" hidden></div>
+
+  <main id="main-content">
+
+    <!-- ============================================= -->
+    <!-- HERO -->
+    <!-- ============================================= -->
+    <section class="hero" id="top">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__badge">Naturalmente refrescante 🍊</p>
+          <h1 class="hero__title">
+            Refresque seu dia.<br>
+            <span class="hero__title-accent">Saboreie</span> o <span class="hero__title-accent hero__title-accent--alt">natural</span>.
+          </h1>
+          <p class="hero__description">
+            Sucos naturais, açaí e sabores preparados para deixar seu dia ainda mais gostoso.
+          </p>
+
+          <div class="hero__ctas">
+            <a href="#cardapio" class="btn btn--primary">Ver cardápio</a>
+            <a href="#" class="btn btn--whatsapp" id="hero-whatsapp-btn">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.9-.4-1.8-1-2.6-1.8-.7-.7-1.2-1.5-1.6-2.3-.1-.3 0-.4.1-.6l.4-.5c.1-.2.2-.4.1-.6-.1-.2-.6-1.5-.8-2-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9 1-.9 2.3 0 1.4 1 2.7 1.1 2.9.1.2 1.9 3 4.7 4.1 2.3.9 2.8.7 3.3.7.5 0 1.6-.6 1.8-1.2.2-.6.2-1.1.2-1.2 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.9 14.8 3.5 13.4 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+              Pedir pelo WhatsApp
+            </a>
+          </div>
+
+          <ul class="hero__highlights">
+            <li>✓ Ingredientes selecionados</li>
+            <li>✓ Preparado com carinho</li>
+            <li>✓ Pedido rápido pelo WhatsApp</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__blob hero__blob--purple"></div>
+          <div class="hero__blob hero__blob--orange"></div>
+          <div class="hero__blob hero__blob--turquoise"></div>
+          <div class="hero__fruit hero__fruit--bottle">🥤</div>
+          <div class="hero__fruit hero__fruit--acai">🫐</div>
+          <div class="hero__fruit hero__fruit--orange">🍊</div>
+          <div class="hero__fruit hero__fruit--pineapple">🍍</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- NAVEGAÇÃO POR CATEGORIAS -->
+    <!-- ============================================= -->
+    <section class="category-nav" aria-labelledby="category-nav-title">
+      <div class="container">
+        <h2 id="category-nav-title" class="section-title section-title--center">Escolha o que você está procurando</h2>
+
+        <div class="category-nav__grid">
+          <button class="category-card" data-scroll-target="cardapio" data-filter="sucos">
+            <span class="category-card__icon" aria-hidden="true">🥤</span>
+            <span class="category-card__label">Sucos Naturais</span>
+          </button>
+          <button class="category-card" data-scroll-target="cardapio" data-filter="acai">
+            <span class="category-card__icon" aria-hidden="true">🥣</span>
+            <span class="category-card__label">Açaí</span>
+          </button>
+          <button class="category-card" data-scroll-target="cardapio" data-filter="salgados">
+            <span class="category-card__icon" aria-hidden="true">🥟</span>
+            <span class="category-card__label">Salgados</span>
+          </button>
+          <button class="category-card" data-scroll-target="combos" data-filter="combos">
+            <span class="category-card__icon" aria-hidden="true">🔥</span>
+            <span class="category-card__label">Combos</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- MAIS PEDIDOS -->
+    <!-- ============================================= -->
+    <section class="featured" aria-labelledby="featured-title">
+      <div class="container">
+        <h2 id="featured-title" class="section-title">Os queridinhos da Gela</h2>
+        <div class="product-grid" id="featured-products"></div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- CARDÁPIO -->
+    <!-- ============================================= -->
+    <section class="menu" id="cardapio" aria-labelledby="menu-title">
+      <div class="container">
+        <h2 id="menu-title" class="section-title">Nosso Cardápio</h2>
+        <p class="section-subtitle">Escolha seus favoritos e monte seu pedido.</p>
+
+        <div class="menu__filters" id="menu-filters" role="tablist" aria-label="Filtrar cardápio">
+          <button class="filter-btn is-active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+          <button class="filter-btn" data-filter="acai" role="tab" aria-selected="false">Açaí</button>
+          <button class="filter-btn" data-filter="sucos" role="tab" aria-selected="false">Sucos</button>
+          <button class="filter-btn" data-filter="salgados" role="tab" aria-selected="false">Salgados</button>
+          <button class="filter-btn" data-filter="combos" role="tab" aria-selected="false">Combos</button>
+        </div>
+
+        <div class="product-grid" id="menu-products"></div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- PARA ACOMPANHAR -->
+    <!-- ============================================= -->
+    <section class="pairing" aria-labelledby="pairing-title">
+      <div class="container">
+        <h2 id="pairing-title" class="section-title">Para acompanhar</h2>
+        <p class="section-subtitle">Porque todo bom suco merece um acompanhamento.</p>
+        <div class="product-grid product-grid--compact" id="pairing-products"></div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- COMBOS -->
+    <!-- ============================================= -->
+    <section class="combos" id="combos" aria-labelledby="combos-title">
+      <div class="container">
+        <h2 id="combos-title" class="section-title">Combinações que valem a pena</h2>
+
+        <div class="combo-grid">
+          <article class="combo-card">
+            <h3 class="combo-card__title">Açaí 300ml + Salgado</h3>
+            <p class="combo-card__price">R$ 17,90</p>
+            <button class="btn btn--secondary combo-card__btn" data-combo-id="combo-1" data-combo-name="Combo Açaí 500ml + Salgado" data-combo-price="17.90">Quero esse combo</button>
+          </article>
+
+          <article class="combo-card">
+            <h3 class="combo-card__title">Suco Natural + Salgado</h3>
+            <p class="combo-card__price">R$ 13,90</p>
+            <button class="btn btn--secondary combo-card__btn" data-combo-id="combo-2" data-combo-name="Combo Suco Natural + Coxinha" data-combo-price="13.90">Quero esse combo</button>
+          </article>
+
+          <article class="combo-card">
+            <h3 class="combo-card__title">2 Sucos + 2 Salgados</h3>
+            <p class="combo-card__price">R$ 24,90</p>
+            <button class="btn btn--secondary combo-card__btn" data-combo-id="combo-3" data-combo-name="Combo 2 Sucos + 2 Salgados" data-combo-price="24.90">Quero esse combo</button>
+          </article>
+        </div>
+        <p class="combos__note">Valores demonstrativos, sujeitos a alteração.</p>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- TABELA DE PREÇOS -->
+    <!-- ============================================= -->
+    <section class="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <h2 id="pricing-title" class="section-title">Preços</h2>
+
+        <table class="pricing__table" id="pricing-table">
+          <caption class="sr-only">Tabela de preços da Gela Juice</caption>
+          <thead>
+            <tr>
+              <th scope="col">Produto</th>
+              <th scope="col">Tamanho</th>
+              <th scope="col">Preço</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Açaí</td><td>300ml</td><td>R$ 13,90</td></tr>
+          <!--  <tr><td>Açaí</td><td>500ml</td><td>R$ 18,90</td></tr>
+            <tr><td>Açaí</td><td>700ml</td><td>R$ 24,90</td></tr> -->
+            <tr><td>Suco</td><td>300ml</td><td>a partir de R$ 8,00</td></tr>
+            <tr><td>Suco</td><td>500ml</td><td>a partir de R$ 10,00</td></tr>
+            <tr><td>Salgados</td><td>Unidade</td><td>a partir de R$ 5,00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SOBRE -->
+    <!-- ============================================= -->
+    <section class="about" id="sobre" aria-labelledby="about-title">
+      <div class="container about__inner">
+        <div class="about__text">
+          <h2 id="about-title" class="section-title">Conheça a Gela Juice</h2>
+          <p>A Gela Juice nasceu para deixar seus momentos mais refrescantes e saborosos.</p>
+          <p>Trabalhamos com sucos naturais, açaí e acompanhamentos preparados para quem busca praticidade sem abrir mão do sabor.</p>
+        </div>
+
+        <ul class="about__highlights">
+          <li><span aria-hidden="true">🍊</span> Sucos naturais</li>
+          <li><span aria-hidden="true">🍇</span> Açaí cremoso</li>
+          <li><span aria-hidden="true">🌿</span> Ingredientes selecionados</li>
+          <li><span aria-hidden="true">🥤</span> Refrescância em cada pedido</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- LOCALIZAÇÃO -->
+    <!-- ============================================= -->
+    <section class="location" id="localizacao" aria-labelledby="location-title">
+      <div class="container location__inner">
+        <div class="location__info">
+          <h2 id="location-title" class="section-title">Encontre a Gela Juice</h2>
+
+          <ul class="location__list">
+            <li>
+              <span class="location__icon" aria-hidden="true">📍</span>
+              <div>
+                <strong>Endereço</strong>
+                <p id="location-address">Adicione seu endereço</p>
+              </div>
+            </li>
+            <li>
+              <span class="location__icon" aria-hidden="true">🕐</span>
+              <div>
+                <strong>Horário</strong>
+                <ul class="location__hours">
+                  <li>Terça a Sexta — 06:00 às 18:00</li>
+                  <li>Sábado — 07:00 às 17:00</li>
+                  <li>Domingo — 11:00 às 17:00</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span class="location__icon" aria-hidden="true">📱</span>
+              <div>
+                <strong>WhatsApp</strong>
+                <p id="location-whatsapp-display">(61) 9989-3803</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="#" id="how-to-arrive-btn" class="btn btn--primary" target="_blank" rel="noopener">Como chegar</a>
+        </div>
+
+        <div class="location__map" id="location-map">
+          <p class="location__map-placeholder"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d479.67201441158835!2d-48.143368816750126!3d-15.889354599999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1791226494052!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>Ss</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- INSTAGRAM -->
+    <!-- ============================================= -->
+    <section class="instagram" aria-labelledby="instagram-title">
+      <div class="container instagram__inner">
+        <div>
+          <h2 id="instagram-title" class="section-title">Siga a Gela</h2>
+          <p class="instagram__handle">@gelajuice</p>
+        </div>
+        <a href="https://www.instagram.com/gelajuice?stkn=OTc0N3dwMWNtbWo1" class="btn btn--secondary" id="instagram-follow-btn" target="_blank" rel="noopener">Seguir no Instagram</a>
+      </div>
+      <div class="instagram__grid" aria-hidden="true">
+        <div class="instagram__placeholder"></div>
+        <div class="instagram__placeholder"></div>
+        <div class="instagram__placeholder"></div>
+        <div class="instagram__placeholder"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================= -->
+  <!-- BOTÃO FLUTUANTE DO CARRINHO (mobile) -->
+  <!-- ============================================= -->
+  <button class="cart-fab" id="cart-fab" hidden>
+    <span class="cart-fab__summary" id="cart-fab-summary">🛒 0 itens • R$ 0,00</span>
+    <span class="cart-fab__cta">Ver pedido</span>
+  </button>
+
+  <!-- ============================================= -->
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <!-- ============================================= -->
+  <a href=" https://wa.me/556199893803" class="whatsapp-fab" id="whatsapp-fab" aria-label="Faça seu pedido pelo WhatsApp" target="_blank" rel="noopener">
+    <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.9-.4-1.8-1-2.6-1.8-.7-.7-1.2-1.5-1.6-2.3-.1-.3 0-.4.1-.6l.4-.5c.1-.2.2-.4.1-.6-.1-.2-.6-1.5-.8-2-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9 1-.9 2.3 0 1.4 1 2.7 1.1 2.9.1.2 1.9 3 4.7 4.1 2.3.9 2.8.7 3.3.7.5 0 1.6-.6 1.8-1.2.2-.6.2-1.1.2-1.2 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.9 14.8 3.5 13.4 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+    <span class="whatsapp-fab__tooltip">Faça seu pedido</span>
+  </a>
+
+  <!-- ============================================= -->
+  <!-- CARRINHO (DRAWER) -->
+  <!-- ============================================= -->
+  <div class="cart-overlay" id="cart-overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Carrinho de pedido" aria-hidden="true">
+    <div class="cart-drawer__header">
+      <h2>Seu pedido</h2>
+      <button class="cart-drawer__close" id="cart-close" aria-label="Fechar carrinho">&times;</button>
+    </div>
+
+    <div class="cart-drawer__body" id="cart-items">
+      <p class="cart-drawer__empty" id="cart-empty-message">Seu carrinho está vazio. Que tal adicionar um açaí?</p>
+    </div>
+
+    <div class="cart-drawer__footer">
+      <div class="cart-drawer__actions">
+        <button class="btn-link" id="cart-clear">Limpar carrinho</button>
+      </div>
+      <div class="cart-drawer__total">
+        <span>Total do pedido</span>
+        <strong id="cart-total">R$ 0,00</strong>
+      </div>
+      <button class="btn btn--whatsapp cart-drawer__checkout" id="checkout-whatsapp-btn">Finalizar pelo WhatsApp</button>
+    </div>
+  </aside>
+
+  <!-- ============================================= -->
+  <!-- FOOTER -->
+  <!-- ============================================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="img/logo.png" alt="Gela Juice" width="120" height="34">
+        <p>Sucos naturais • Açaí • Salgados</p>
+      </div>
+
+      <nav aria-label="Links do rodapé">
+        <ul class="footer__links">
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+          <li><a href="#" id="footer-whatsapp-link" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#" id="footer-instagram-link" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer__copy">© <span id="current-year"></span> Gela Juice — Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Feedback toast (adicionado ao pedido) -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <!-- Template para itens de produto (usado pelo JS) -->
+  <template id="product-card-template">
+    <article class="product-card">
+      <div class="product-card__image-wrap">
+        <span class="product-card__badge" hidden>Mais pedido</span>
+        <img class="product-card__image" src="" alt="">
+      </div>
+      <div class="product-card__body">
+        <h3 class="product-card__name"></h3>
+        <p class="product-card__description"></p>
+        <div class="product-card__footer">
+          <span class="product-card__price"></span>
+          <button class="product-card__add" aria-label="Adicionar ao pedido">+</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- Template para item do carrinho -->
+  <template id="cart-item-template">
+    <div class="cart-item">
+      <div class="cart-item__info">
+        <p class="cart-item__name"></p>
+        <p class="cart-item__unit-price"></p>
+      </div>
+      <div class="cart-item__quantity">
+        <button class="cart-item__decrease" aria-label="Diminuir quantidade">-</button>
+        <span class="cart-item__count"></span>
+        <button class="cart-item__increase" aria-label="Aumentar quantidade">+</button>
+      </div>
+      <p class="cart-item__subtotal"></p>
+      <button class="cart-item__remove" aria-label="Remover produto">&times;</button>
+    </div>
+  </template>
+
+  <!-- Schema.org — sem inventar endereço, telefone ou horário reais -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Gela Juice",
+    "servesCuisine": "Sucos naturais, açaí, salgados",
+    "priceRange": "R$5 - R$30"
+  }
+  </script>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
