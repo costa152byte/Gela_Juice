@@ -230,7 +230,7 @@
           </thead>
           <tbody>
             <tr><td>Açaí</td><td>300ml</td><td>R$ 13,90</td></tr>
-          <!--  <tr><td>Açaí</td><td>500ml</td><td>R$ 18,90</td></tr>
+          <!-- <tr><td>Açaí</td><td>500ml</td><td>R$ 18,90</td></tr>
             <tr><td>Açaí</td><td>700ml</td><td>R$ 24,90</td></tr> -->
             <tr><td>Suco</td><td>300ml</td><td>a partir de R$ 8,00</td></tr>
             <tr><td>Suco</td><td>500ml</td><td>a partir de R$ 10,00</td></tr>
@@ -316,11 +316,8 @@
         </div>
         <a href="https://www.instagram.com/gelajuice?stkn=OTc0N3dwMWNtbWo1" class="btn btn--secondary" id="instagram-follow-btn" target="_blank" rel="noopener">Seguir no Instagram</a>
       </div>
-      <div class="instagram__grid" aria-hidden="true">
-        <div class="instagram__placeholder"></div>
-        <div class="instagram__placeholder"></div>
-        <div class="instagram__placeholder"></div>
-        <div class="instagram__placeholder"></div>
+      <div class="instagram__grid" id="instagram-posts">
+        <!-- Preenchido via JavaScript (ver array instagramPosts em js/main.js) -->
       </div>
     </section>
 
@@ -439,6 +436,9 @@
     "priceRange": "R$5 - R$30"
   }
   </script>
+
+  <!-- Script oficial do Instagram, necessário para renderizar os posts embutidos -->
+  <script async src="https://www.instagram.com/embed.js"></script>
 
   <script src="js/main.js" defer></script>
 </body>

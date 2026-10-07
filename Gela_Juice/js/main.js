@@ -36,25 +36,25 @@ const STORE_CONFIG = {
    ================================================================= */
 const products = [
   // AÇAÍ
-  { id: 1, name: "Açaí 300ml", category: "acai", description: "Açaí cremoso e refrescante.", price: 13.90, image: "img/acai/acai-300.png", featured: false },
- // { id: 2, name: "Açaí 500ml", category: "acai", description: "Cremoso, refrescante e cheio de sabor.", price: 18.90, image: "img/acai/acai-500.webp", featured: true },
- // { id: 3, name: "Açaí 700ml", category: "acai", description: "Para quem quer aproveitar ainda mais.", price: 24.90, image: "img/acai/acai-700.webp", featured: false },
+  //{ id: 1, name: "Açaí 300ml", category: "acai", description: "Açaí cremoso e refrescante.", price: 13.90, image: "img/acai/acai-300.png", featured: false },
+ // { id: 2, name: "Açaí 500ml", category: "acai", description: "Cremoso, refrescante e cheio de sabor.", price: 18.90, image: "img/acai/acai-500.png", featured: true },
+ // { id: 3, name: "Açaí 700ml", category: "acai", description: "Para quem quer aproveitar ainda mais.", price: 24.90, image: "img/acai/acai-700.png", featured: false },
   { id: 4, name: "Açaí na Garrafa", category: "acai", description: "Praticidade para levar para qualquer lugar.", price: 13.90, image: "img/acai/acai-garrafa.webp", featured: true },
 
   // SUCOS NATURAIS
   { id: 5, name: "Suco de Laranja", category: "sucos", description: "Feito com laranjas selecionadas.", price: 8.00, image: "img/sucos/laranja.png", featured: false },
   { id: 6, name: "Suco de Maracujá", category: "sucos", description: "Azedinho na medida certa.", price: 9.00, image: "img/sucos/maracuja.png", featured: false },
- // { id: 7, name: "Suco de Acerola", category: "sucos", description: "Fresco e rico em vitamina C.", price: 8.00, image: "img/sucos/acerola.webp", featured: false },
-  //{ id: 8, name: "Abacaxi com Hortelã", category: "sucos", description: "A combinação clássica que refresca.", price: 10.00, image: "img/sucos/abacaxi-hortela.webp", featured: true },
- // { id: 9, name: "Suco de Morango", category: "sucos", description: "Doce, natural e cheio de sabor.", price: 11.00, image: "img/sucos/morango.webp", featured: false },
+ // { id: 7, name: "Suco de Acerola", category: "sucos", description: "Fresco e rico em vitamina C.", price: 8.00, image: "img/sucos/acerola.png", featured: false },
+  { id: 8, name: "Abacaxi com Hortelã", category: "sucos", description: "A combinação clássica que refresca.", price: 10.00, image: "img/sucos/abacaxi-hortela.png", featured: true },
+ // { id: 9, name: "Suco de Morango", category: "sucos", description: "Doce, natural e cheio de sabor.", price: 11.00, image: "img/sucos/morango.png", featured: false },
   { id: 10, name: "Suco de Manga", category: "sucos", description: "Tropical e naturalmente doce.", price: 8.00, image: "img/sucos/manga.png", featured: false },
 
   // SALGADOS
   { id: 11, name: "Pão pizza", category: "salgados", description: "Massa macia com recheio cremoso.", price: 5.00, image: "img/salgados/paopizza.jpg", pairing: true },
   { id: 12, name: "Frango", category: "salgados", description: "Crocante por fora, saboroso por dentro.", price: 5.00, image: "img/salgados/frango.png", pairing: true },
-  { id: 13, name: "carne", category: "salgados", description: "Massa amanteigada com recheio especial.", price: 5.00, image: "img/salgados/empada.webp", pairing: true },
-  { id: 14, name: "Enroladinho ", category: "salgados", description: "Prático e cheio de sabor.", price: 5.00, image: "img/salgados/enroladinho.webp", pairing: true },
-  { id: 15, name: "Pão de Queijo", category: "salgados", description: "Quentinho e derretendo por dentro.", price: 2.00, image: "img/salgados/pao-de-queijo.webp", pairing: true },
+  { id: 13, name: "carne", category: "salgados", description: "Massa amanteigada com recheio especial.", price: 5.00, image: "img/salgados/carne.png", pairing: true },
+  { id: 14, name: "Enroladinho ", category: "salgados", description: "Prático e cheio de sabor.", price: 5.00, image: "img/salgados/enroladinho.png", pairing: true },
+  { id: 15, name: "Pão de Queijo", category: "salgados", description: "Quentinho e derretendo por dentro.", price: 2.00, image: "img/salgados/pao-de-queijo.png", pairing: true },
 ];
 
 // Emojis usados como ícone visual enquanto não há fotos reais dos produtos
@@ -167,9 +167,19 @@ function createProductCard(product) {
   const imageEl = qs(".product-card__image", card);
   const badgeEl = qs(".product-card__badge", card);
 
-  // Sem foto real disponível: usamos o emoji da categoria como placeholder visual
-  imageEl.remove();
-  imageWrap.textContent = CATEGORY_ICON[product.category] || "🥤";
+  imageEl.src = product.image;
+  imageEl.alt = product.name;
+  imageEl.loading = "lazy";
+
+  // Se a foto não existir ou não carregar, mostra o emoji da categoria no lugar
+  imageEl.addEventListener(
+    "error",
+    () => {
+      imageEl.remove();
+      imageWrap.textContent = CATEGORY_ICON[product.category] || "🥤";
+    },
+    { once: true }
+  );
 
   if (product.featured) {
     badgeEl.hidden = false;
@@ -480,6 +490,43 @@ function setupStoreLinks() {
   if (footerInstagramLink) footerInstagramLink.href = STORE_CONFIG.instagram;
 }
 
+/* Posts reais do Instagram embutidos via widget oficial.
+   Adicione o link do post (ex: "https://www.instagram.com/p/XXXXXXX/")
+   para ele aparecer na seção "Siga a Gela". */
+const instagramPosts = [
+  "https://www.instagram.com/p/DcE82xCtK11/",
+  "https://www.instagram.com/p/DcE8xGKNiwZ/",
+];
+
+function renderInstagramPosts() {
+  const container = qs("#instagram-posts");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  instagramPosts.forEach((permalink) => {
+    const blockquote = document.createElement("blockquote");
+    blockquote.className = "instagram-media";
+    blockquote.setAttribute("data-instgrm-permalink", permalink);
+    blockquote.setAttribute("data-instgrm-version", "14");
+    container.appendChild(blockquote);
+  });
+
+  processInstagramEmbeds();
+}
+
+// O script oficial do Instagram (embed.js) carrega de forma assíncrona e só
+// processa automaticamente os blockquotes que já existiam quando ele carregou.
+// Como os nossos são inseridos depois (via JS), chamamos .process() manualmente
+// — e tentamos de novo em 300ms se o script ainda não tiver carregado.
+function processInstagramEmbeds() {
+  if (window.instgrm && window.instgrm.Embeds) {
+    window.instgrm.Embeds.process();
+  } else {
+    setTimeout(processInstagramEmbeds, 300);
+  }
+}
+
 /* =================================================================
    13. UI — TOAST DE FEEDBACK
    ================================================================= */
@@ -555,6 +602,7 @@ function init() {
   setupWhatsAppButtons();
   setupComboButtons();
   setupStoreLinks();
+  renderInstagramPosts();
   setCurrentYear();
 }
 

@@ -56,6 +56,7 @@ body {
   color: var(--color-text);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* rede de segurança contra qualquer elemento que force rolagem lateral */
 }
 
 img { max-width: 100%; display: block; }
@@ -267,7 +268,9 @@ section { padding: clamp(48px, 6vw, 88px) 0; }
 .mobile-nav-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(36, 23, 38, 0.45);
+  /* Transparente de propósito: serve só para fechar o menu ao tocar fora
+     dele — o painel do menu não deve escurecer o resto da página. */
+  background: transparent;
   z-index: 90;
 }
 
@@ -372,7 +375,7 @@ section { padding: clamp(48px, 6vw, 88px) 0; }
    ================================================================= */
 .category-nav__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
   margin-top: 36px;
 }
@@ -620,13 +623,24 @@ section { padding: clamp(48px, 6vw, 88px) 0; }
   margin: 32px auto 0;
   padding-inline: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(326px, 100%), 1fr));
+  justify-content: center;
+  gap: 24px;
+  /* O widget do Instagram tem min-width próprio (326px) que não controlamos;
+     em telas mais estreitas que isso, deixamos rolar de lado em vez de
+     quebrar o layout da página inteira. */
+  overflow-x: auto;
 }
-.instagram__placeholder {
-  aspect-ratio: 1;
-  border-radius: var(--border-radius-sm);
-  background: linear-gradient(135deg, var(--color-surface-alt), var(--color-border));
+.instagram__grid > * { max-width: 100%; }
+
+/* Mensagem temporária enquanto o script oficial do Instagram carrega os posts */
+.instagram__grid:empty::before {
+  content: "Carregando posts do Instagram...";
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  padding: 20px;
 }
 
 /* =================================================================
@@ -824,10 +838,6 @@ section { padding: clamp(48px, 6vw, 88px) 0; }
   .about__inner,
   .location__inner { grid-template-columns: 1fr; }
 
-  .category-nav__grid { grid-template-columns: repeat(2, 1fr); }
-
-  .instagram__grid { grid-template-columns: repeat(2, 1fr); }
-
   /* Tabela de preços -> cards no mobile */
   .pricing__table thead { display: none; }
   .pricing__table, .pricing__table tbody, .pricing__table tr, .pricing__table td {
@@ -846,8 +856,14 @@ section { padding: clamp(48px, 6vw, 88px) 0; }
 }
 
 @media (max-width: 560px) {
-  .category-nav__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .category-nav__grid { gap: 12px; }
   .hero__ctas { flex-direction: column; align-items: stretch; }
   .hero__ctas .btn { justify-content: center; }
   .cart-fab { bottom: 84px; }
+}
+
+@media (max-width: 400px) {
+  .container { padding-inline: 16px; }
+  .cart-fab { left: 12px; right: 12px; flex-wrap: wrap; gap: 6px; font-size: 0.9rem; }
+  .hero__title { font-size: 2.1rem; }
 }
